@@ -1,0 +1,47 @@
+<ion-view view-title="新题目">
+  <ion-content>
+      <!--<ion-list type="card">-->
+          <!--<ion-item ng-repeat="item in items">-->
+              <!--<p>-->
+              <!--{{item.title}}-->
+              <!--</p>-->
+              <!--<p>-->
+                  <!--<a href="#" class="subdued">{{item.marks}} 收藏</a>-->
+                  <!--<a href="#" class="subdued">{{item.comments}} 段故事</a>-->
+              <!--</p>-->
+              <!--<ion-option-button class="button-calm"-->
+                                 <!--ng-click="mark(item)">-->
+                  <!--收藏-->
+              <!--</ion-option-button>-->
+          <!--</ion-item>-->
+      <!--</ion-list>-->
+      <div class="list card">
+
+          <div ng-repeat="item in items">
+              <div class="item item-body" style="background-color: rgba(71, 175, 205, 0.25);">
+                  <h2>{{item.title}}</h2>
+                  <p>November 05, 1955</p>
+
+                  <p>
+                      {{item.title}}
+                  </p>
+                  <p>
+                      <a href="#" class="subdued">{{item.marks}} Like</a>
+                      <a href="#" class="subdued">{{item.comments}} Comments</a>
+                  </p>
+              </div>
+              <br>
+          </div>
+      </div>
+      <div ng-if="moreDataCanBeLoaded() == false" class="row">
+      <div class="col col-offset-33">
+          没更多数据了
+      </div>
+      </div>
+      <ion-infinite-scroll
+              ng-if="moreDataCanBeLoaded()"
+              spinner="lines"
+              on-infinite="loadMoreData()">
+      </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
