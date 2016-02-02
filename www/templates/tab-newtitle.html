@@ -1,8 +1,7 @@
 <ion-view view-title="新段子">
   <ion-content>
-      <div class="list card">
-
-          <div ng-repeat="item in items">
+      <div ng-repeat="item in items">
+          <div class="list card my-card">
               <div class="item item-body " style="background-color: {{config.HOT_BACKGROUND_RGB[item.isHot]}};">
                   <div class="row">
                       <div class="col col-33 col-offset-33">{{item.date}}</div>
@@ -10,13 +9,12 @@
                   <p>
                       {{item.title}}
                   </p>
-                  <p>
-                      <a href="#" ng-click="mark(item.id)" class="button button-icon icon ion-thumbsup subdued">{{item.marks}}喜欢</a>
-                      <a href="#/tab/detail/{{item.id}}" class="button button-icon icon ion-chatbubbles subdued">{{item.comments}}段故事</a>
-                  </p>
+                  <div class="row">
+                      <div class="col"><a href="#" ng-click="mark(item.id)" class="button button-icon icon ion-thumbsup subdued">{{item.marks}}喜欢</a></div>
+                      <div class="col"><a href="#/tab/detail/{{item.id}}" class="button button-icon icon ion-chatbubbles subdued">{{item.comments}}段故事</a></div>
+                  </div>
               </div>
-              <br>
-          </div>
+        </div>
       </div>
       <div ng-if="moreDataCanBeLoaded() == false" class="row">
       <div class="col col-offset-33">

@@ -1,7 +1,40 @@
 <ion-view view-title="test1">
     <ion-content>
-        <p>
-            {{id}}
-        </p>
+        <div class="card my-card-high">
+            <div class="item item-text-wrap">
+                {{title}}
+            </div>
+            <div class="row">
+                <div class="col col-33 col-offset-33">{{date}}</div>
+            </div>
+        </div>
+
+        <div class="list card my-card">
+            <div ng-repeat="item in items">
+                <div class="item item-divider item-divider-detail" style="background-color: {{bgColor}};">
+                    <div class="row">
+                        <div class="col">作者:{{item.author}}</div>
+                        <div class="col">{{item.createTime}}</div>
+                    </div>
+                </div>
+                <div class="item item-text-wrap" style="background-color: {{bgColor}};">
+                    {{item.content}}
+                </div>
+                <div class="row color-fit">
+                    <div class="col">
+                        <a href="#"
+                           ng-click="mark(item.id)"
+                           class="button button-icon icon ion-thumbsup">15</a>
+                    </div>
+                    <div class="col">
+                        <a href="#"
+                           ng-click="mark(item.id)"
+                           class="button button-icon icon ion-share"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </ion-content>
 </ion-view>
