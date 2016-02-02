@@ -1,8 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('NewTitleCtrl', function($scope, $timeout, NewBookList) {
+.controller('NewTitleCtrl', function($scope, $timeout, NewBookList, CONFIG) {
     $scope.items = [];
-
+    $scope.config = CONFIG;
     NewBookList.getBookList.then(function(res){
         var booklist = res.data.newBookList;
         $scope.items = booklist;
@@ -36,10 +36,9 @@ angular.module('starter.controllers', [])
             return true;
         }
     };
-
-        $scope.mark = function(item){
-            alert('Share Item: ' + item.title);
-        };
+    $scope.mark = function(id){
+        alert(id);
+    };
     //$scope.doRefresh = function(){
     //  $timeout( function() {
     //    //simulate async response
@@ -67,12 +66,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
+.controller('DetailCtrl', function($scope, $state) {
+        var id = $state.params.Id;
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
 });

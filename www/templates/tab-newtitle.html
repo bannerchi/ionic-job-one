@@ -1,33 +1,18 @@
-<ion-view view-title="新题目">
+<ion-view view-title="新段子">
   <ion-content>
-      <!--<ion-list type="card">-->
-          <!--<ion-item ng-repeat="item in items">-->
-              <!--<p>-->
-              <!--{{item.title}}-->
-              <!--</p>-->
-              <!--<p>-->
-                  <!--<a href="#" class="subdued">{{item.marks}} 收藏</a>-->
-                  <!--<a href="#" class="subdued">{{item.comments}} 段故事</a>-->
-              <!--</p>-->
-              <!--<ion-option-button class="button-calm"-->
-                                 <!--ng-click="mark(item)">-->
-                  <!--收藏-->
-              <!--</ion-option-button>-->
-          <!--</ion-item>-->
-      <!--</ion-list>-->
       <div class="list card">
 
           <div ng-repeat="item in items">
-              <div class="item item-body" style="background-color: rgba(71, 175, 205, 0.25);">
-                  <h2>{{item.title}}</h2>
-                  <p>November 05, 1955</p>
-
+              <div class="item item-body " style="background-color: {{config.HOT_BACKGROUND_RGB[item.isHot]}};">
+                  <div class="row">
+                      <div class="col col-33 col-offset-33">{{item.date}}</div>
+                  </div>
                   <p>
                       {{item.title}}
                   </p>
                   <p>
-                      <a href="#" class="subdued">{{item.marks}} Like</a>
-                      <a href="#" class="subdued">{{item.comments}} Comments</a>
+                      <a href="#" ng-click="mark(item.id)" class="button button-icon icon ion-thumbsup subdued">{{item.marks}}喜欢</a>
+                      <a href="#/tab/detail/{{item.id}}" class="button button-icon icon ion-chatbubbles subdued">{{item.comments}}段故事</a>
                   </p>
               </div>
               <br>

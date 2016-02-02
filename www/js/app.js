@@ -30,7 +30,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
@@ -49,7 +48,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-
+  .state('tab.detail', {
+    url: '/detail/:Id',
+    views:{
+      'tab-newtitle':{
+        templateUrl: 'templates/detail.html',
+        controller: 'DetailCtrl'
+      }
+    }
+  })
   .state('tab.bookmark', {
       url: '/bookmark',
       views: {
@@ -63,4 +70,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/newtitle');
 
+})
+.constant('CONFIG', {
+    "HOT_BACKGROUND_RGB" : {
+      "1":"rgba(71, 175, 205, 0.15)",
+      "2":"rgba(71, 175, 205, 0.25)",
+      "3":"rgba(71, 175, 205, 0.40)",
+      "4":"rgba(71, 175, 205, 0.60)"
+    }
 });
