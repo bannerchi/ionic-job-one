@@ -1,0 +1,24 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-calm">
+        <h1 class="title">我来接着写</h1>
+        <button class="button button-clear" ng-click="modal.hide()">取消</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="list">
+            <div class="card my-card-high">
+                <div class="item item-divider">
+                    <div class="row">
+                        <div class="col col-33">上一篇文章内容如下：</div>
+                    </div>
+                </div>
+                <div class="item item-text-wrap">
+                    {{parentArticle}}
+                </div>
+            </div>
+            <label class="item item-input">
+                <textarea placeholder="最多输入180字" rows="8" Required="true" ng-model="article"></textarea>
+            </label>
+            <button class="button button-outline button-calm button-block" ng-click="createArticle(article)">提交</button>
+        </div>
+    </ion-content>
+</ion-modal-view>

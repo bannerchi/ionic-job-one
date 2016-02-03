@@ -2,7 +2,12 @@
 .my-card {
     padding-top: 1px;
     padding-bottom: 1px;
-    box-shadow: 3px 9px 15px rgba(0, 0, 0, 0.3); }
+    margin : 10px 0px;
+    box-shadow: 3px 9px 15px rgba(0, 0, 0, 0.3);
+}
+.my-card:last-child {
+    margin-top:-1px;
+}
 
 .my-card-high {
     padding-top: 1px;
@@ -12,7 +17,12 @@
     color: #000
 }
 .color-fit {
-    background:-webkit-gradient(linear, 118 -31, 10 123, from(#E3F3F8), to(#58BBD7));
+    background:-webkit-gradient(linear, 30% 84%,0% 4%, from(rgba(255,255,255,1)), to(rgba(88, 187, 215,0.6)));
 }
-.list:last-child.card {
-    margin-bottom: 10px;  }
+.col-font-color {
+    color: rgba(97, 116, 123, 1);
+}
+
+.detail-list {
+    margin-top:8px;
+}

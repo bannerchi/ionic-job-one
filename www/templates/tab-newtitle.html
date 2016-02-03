@@ -1,8 +1,12 @@
 <ion-view view-title="新段子">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-person" ng-click="user()">
+        </button>
+    </ion-nav-buttons>
   <ion-content>
       <div ng-repeat="item in items">
           <div class="list card my-card">
-              <div class="item item-body " style="background-color: {{config.HOT_BACKGROUND_RGB[item.isHot]}};">
+              <div class="item item-body " ng-click="go(item.id)" style="background-color: {{config.HOT_BACKGROUND_RGB[item.isHot]}};">
                   <div class="row">
                       <div class="col col-33 col-offset-33">{{item.date}}</div>
                   </div>
@@ -10,11 +14,19 @@
                       {{item.title}}
                   </p>
                   <div class="row">
-                      <div class="col"><a href="#" ng-click="mark(item.id)" class="button button-icon icon ion-thumbsup subdued">{{item.marks}}喜欢</a></div>
-                      <div class="col"><a href="#/tab/detail/{{item.id}}" class="button button-icon icon ion-chatbubbles subdued">{{item.comments}}段故事</a></div>
+                      <div class="col">
+                          <a href="#" class="button-icon icon ion-fireball subdued">
+                              &nbsp;{{item.marks}}喜欢
+                          </a>
+                      </div>
+                      <div class="col">
+                          <a href="#" class="button-icon icon ion-chatbubbles subdued">
+                              &nbsp;{{item.comments}}段故事
+                          </a>
+                      </div>
                   </div>
               </div>
-        </div>
+          </div>
       </div>
       <div ng-if="moreDataCanBeLoaded() == false" class="row">
       <div class="col col-offset-33">

@@ -1,38 +1,37 @@
 <ion-view view-title="test1">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-bonfire" ng-click="addArticle()">
+            我来写
+        </button>
+    </ion-nav-buttons>
     <ion-content>
-        <div class="card my-card-high">
+        <div class="card my-card-high color-fit">
             <div class="item item-text-wrap">
                 {{title}}
             </div>
             <div class="row">
-                <div class="col col-33 col-offset-33">{{date}}</div>
+                <div class="col col-33 col-offset-33">{{date}}发布</div>
             </div>
         </div>
 
         <div class="list card my-card">
-            <div ng-repeat="item in items">
-                <div class="item item-divider item-divider-detail" style="background-color: {{bgColor}};">
-                    <div class="row">
+            <div ng-repeat="item in items" class="detail-list">
+                <div class="item item-divider item-divider-detail" style="background-color:{{bgColor}};">
+                    <div class="row col-font-color">
+                        <div class="col">第{{$index + 1}}篇</div>
                         <div class="col">作者:{{item.author}}</div>
-                        <div class="col">{{item.createTime}}</div>
                     </div>
                 </div>
                 <div class="item item-text-wrap" style="background-color: {{bgColor}};">
                     {{item.content}}
                 </div>
                 <div class="row color-fit">
-                    <div class="col">
                         <a href="#"
                            ng-click="mark(item.id)"
-                           class="button button-icon icon ion-thumbsup">15</a>
+                           class="button button-icon icon ion-fireball">&nbsp;<span class="col-font-color">15</span></a>
                     </div>
-                    <div class="col">
-                        <a href="#"
-                           ng-click="mark(item.id)"
-                           class="button button-icon icon ion-share"></a>
-                    </div>
-                </div>
 
+                </div>
             </div>
         </div>
 

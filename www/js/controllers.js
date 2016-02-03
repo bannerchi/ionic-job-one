@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('NewTitleCtrl', function($scope, $timeout, NewBookList, CONFIG) {
+.controller('NewTitleCtrl', function($scope, $timeout, NewBookList, CONFIG, $state) {
         $scope.items = [];
         $scope.config = CONFIG;
         NewBookList.getBookList.then(function(res){
@@ -39,6 +39,9 @@ angular.module('starter.controllers', [])
         $scope.mark = function(id){
             alert(id);
         };
+        $scope.go = function(id){
+            $state.go('tab.detail', {id:id});
+        };
         //$scope.doRefresh = function(){
         //  $timeout( function() {
         //    //simulate async response
@@ -66,8 +69,8 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('DetailCtrl', function($scope, $state) {
-        var id = $state.params.Id;
+.controller('DetailCtrl', function($scope, $state, $ionicModal, $ionicPopup) {
+        var id = $state.params.id;
         $scope.items = [
             {
                 "id":1,
@@ -103,5 +106,31 @@ angular.module('starter.controllers', [])
         $scope.title = 'sdf;slkl;k;slkd;flk3;lkslkldslkllkslk,sdfoojslkls.';
         $scope.bgColor = "rgba(71, 175, 205, 0.15)";
         $scope.date = '2016.01.09';
+
+        $scope.addArticle = function(){
+            // TODO Add user auth check
+            // TODO Add if already write check
+            $ionicModal.fromTemplateUrl('templates/modal.html', {
+                scope: $scope
+            }).then(function(modal) {
+                $scope.modal = modal;
+                $scope.aid = '5';
+                $scope.parentArticle = "bulabulabula...";
+                $scope.modal.show();
+            });
+        };
+
+        $scope.createArticle = function(article){
+            // TODO check words count
+            if(article === undefined){
+                var alertPopup = $ionicPopup.alert({
+                    title: '请确认',
+                    template: '确认你有写东西哦！',
+                    okText:'知道了',
+                    okType:'button-calm'
+                });
+            }
+        };
+
 
 });
